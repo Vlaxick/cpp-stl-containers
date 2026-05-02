@@ -2,6 +2,7 @@
 #include <iostream>
 #include <array>
 #include <cstddef>
+#include <vector>
 
 template <typename T, std::size_t N1, std::size_t N2>
 std::array<T, N1 + N2> mergeArrays(const std::array<T, N1>& arr1, const std::array<T, N2>& arr2){
@@ -30,3 +31,18 @@ std::array<T, N1 + N2> mergeArrays(const std::array<T, N1>& arr1, const std::arr
         ++itMerged;
     } return mergedArray;
 }
+
+template <typename T>
+void splitVector(const std::vector<T>& input, std::vector<T>& evens, std::vector<T>& odds) {
+    evens.clear();
+    odds.clear();
+
+    for (auto it = input.begin(); it != input.end(); ++it) {
+        if (*it % 2 == 0) {
+            evens.push_back(*it);
+        } else {
+            odds.push_back(*it);
+        }
+    }
+}
+
