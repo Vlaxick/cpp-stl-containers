@@ -3,6 +3,7 @@
 #include <array>
 #include <cstddef>
 #include <vector>
+#include <deque>
 
 template <typename T, std::size_t N1, std::size_t N2>
 std::array<T, N1 + N2> mergeArrays(const std::array<T, N1>& arr1, const std::array<T, N2>& arr2){
@@ -44,5 +45,21 @@ void splitVector(const std::vector<T>& input, std::vector<T>& evens, std::vector
             odds.push_back(*it);
         }
     }
+}
+
+template <typename T>
+bool isPalindrome (const std::deque<T>& deque){
+    auto left = deque.begin();
+    auto right = deque.end() - 1;
+
+    if (deque.empty()) return true;
+
+    while (left < right){
+        if (*left != *right) {
+            return false;
+        }
+        ++left;
+        --right;
+    } return true;
 }
 
